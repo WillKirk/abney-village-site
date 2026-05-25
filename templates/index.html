@@ -4,8 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abney Hope Valley</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
 </head>
-<body>
-    <h1>Welcome to Abney Hope Valley</h1>
+<body class="bg-village-cream font-body text-village-dark">
+
+    <nav class="bg-village-green sticky top-0 z-50 shadow-md">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+            
+            <!-- Village name / logo -->
+            <a href="/" class="font-heading text-2xl text-village-cream tracking-wide">
+                Abney
+            </a>
+
+            <!-- Nav links -->
+            <ul class="flex gap-8 text-village-cream font-body text-sm uppercase tracking-widest">
+                <li><a href="/" class="hover:text-village-stone transition-colors">Home</a></li>
+                <li><a href="/about" class="hover:text-village-stone transition-colors">About</a></li>
+                <li><a href="/gallery" class="hover:text-village-stone transition-colors">Gallery</a></li>
+                <li><a href="/village-hall" class="hover:text-village-stone transition-colors">Village Hall</a></li>
+                <li><a href="/find-us" class="hover:text-village-stone transition-colors">Find Us</a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <!-- Hero Carousel -->
+    <div id="carousel" class="relative w-full h-[60vh] overflow-hidden">
+
+        <!-- Slides -->
+        <div class="carousel-slide absolute inset-0 transition-opacity duration-1000 opacity-100">
+            <img src="/static/images/village1.jpg" class="w-full h-full object-cover" alt="Abney village">
+            </div>
+        <div class="carousel-slide absolute inset-0 transition-opacity duration-1000 opacity-0">
+            <img src="/static/images/village2.jpg" class="w-full h-full object-cover" alt="Abney moorland">
+        </div>
+        <div class="carousel-slide absolute inset-0 transition-opacity duration-1000 opacity-0">
+            <img src="/static/images/village3.jpg" class="w-full h-full object-cover" alt="Abney clough">
+        </div>
+
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+            <div class="text-center text-white">
+                <h1 class="font-heading text-6xl mb-4 drop-shadow-lg">Abney</h1>
+                <p class="text-xl font-light tracking-widest uppercase drop-shadow">Hope Valley, Peak District</p>
+            </div>
+        </div>
+
+        <!-- Prev/Next buttons -->
+        <button id="prev" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white px-4 py-2 rounded transition">&#8592;</button>
+        <button id="next" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white px-4 py-2 rounded transition">&#8594;</button>
+
+        <!-- Dots -->
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+            <button class="carousel-dot w-3 h-3 rounded-full bg-white opacity-100 transition"></button>
+            <button class="carousel-dot w-3 h-3 rounded-full bg-white opacity-40 transition"></button>
+            <button class="carousel-dot w-3 h-3 rounded-full bg-white opacity-40 transition"></button>
+        </div>
+
+    </div>
+
+    <h1 class="font-heading text-4xl text-village-green p-8">
+        Welcome to Abney 
+    </h1>
+    <script src="{{ url_for('static', filename='js/carousel.js') }}"></script>
 </body>
 </html>

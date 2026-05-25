@@ -1,0 +1,30 @@
+{
+  "name": "abneywebsite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "tailwindcss -i ./static/css/input.css -o ./static/css/output.css",
+    "watch:css": "tailwindcss -i ./static/css/input.css -o ./static/css/output.css --watch",
+    "build:ts": "tsc",
+    "watch:ts": "tsc --watch",
+    "dev": "concurrently \"npm run watch:css\" \"npm run watch:ts\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WillKirk/abney-village-site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/WillKirk/abney-village-site/issues"
+  },
+  "homepage": "https://github.com/WillKirk/abney-village-site#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "tailwindcss": "^3.4.19",
+    "typescript": "^6.0.3"
+  }
+}
