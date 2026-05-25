@@ -13,8 +13,34 @@
     <!-- Navbar -->
     <nav class="bg-village-green sticky top-0 z-50 shadow-md">
         <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+            
+            <!-- Village name / logo -->
             <a href="/" class="font-heading text-2xl text-village-cream tracking-wide">Abney</a>
-            <ul class="flex gap-8 text-village-cream font-body text-sm uppercase tracking-widest">
+    
+            <!-- Hamburger button (mobile only) -->
+            <button id="menu-toggle" class="md:hidden text-village-cream focus:outline-none">
+                <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+                <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7 hidden">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+    
+            <!-- Nav links (desktop) -->
+            <ul class="hidden md:flex gap-8 text-village-cream font-body text-sm uppercase tracking-widest">
+                <li><a href="/" class="hover:text-village-stone transition-colors">Home</a></li>
+                <li><a href="/about" class="hover:text-village-stone transition-colors">About</a></li>
+                <li><a href="/gallery" class="hover:text-village-stone transition-colors">Gallery</a></li>
+                <li><a href="/village-hall" class="hover:text-village-stone transition-colors">Village Hall</a></li>
+                <li><a href="/find-us" class="hover:text-village-stone transition-colors">Find Us</a></li>
+            </ul>
+    
+        </div>
+    
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-village-green border-t border-village-lightgreen">
+            <ul class="flex flex-col px-4 py-4 gap-4 text-village-cream font-body text-sm uppercase tracking-widest">
                 <li><a href="/" class="hover:text-village-stone transition-colors">Home</a></li>
                 <li><a href="/about" class="hover:text-village-stone transition-colors">About</a></li>
                 <li><a href="/gallery" class="hover:text-village-stone transition-colors">Gallery</a></li>
@@ -22,6 +48,7 @@
                 <li><a href="/find-us" class="hover:text-village-stone transition-colors">Find Us</a></li>
             </ul>
         </div>
+    
     </nav>
 
     <!-- Page content -->
@@ -44,6 +71,6 @@
     </footer>
 
     {% block scripts %}{% endblock %}
-
+    <script src="{{ url_for('static', filename='js/nav.js') }}"></script>
 </body>
 </html>
