@@ -8,7 +8,7 @@
 <div id="carousel" class="relative w-full h-[60vh] overflow-hidden">
     {% for image in images %}
     <div class="carousel-slide absolute inset-0 transition-opacity duration-1000 {{ 'opacity-100' if loop.first else 'opacity-0' }}">
-        <img src="/static/images/{{ image }}" class="w-full h-full object-cover" alt="Abney village">
+        <img src="{{ r2_url + '/' + image if r2_url else '/static/images/' + image }}" class="w-full h-full object-cover" alt="Abney village">
     </div>
     {% endfor %}
     <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
