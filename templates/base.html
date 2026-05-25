@@ -29,48 +29,50 @@
     
             <!-- Nav links (desktop) -->
             <ul class="hidden md:flex gap-8 text-village-cream font-body text-sm uppercase tracking-widest">
-                <li><a href="/" class="hover:text-village-stone transition-colors">Home</a></li>
-                <li><a href="/about" class="hover:text-village-stone transition-colors">About</a></li>
-                <li><a href="/gallery" class="hover:text-village-stone transition-colors">Gallery</a></li>
-                <li><a href="/village-hall" class="hover:text-village-stone transition-colors">Village Hall</a></li>
-                <li><a href="/find-us" class="hover:text-village-stone transition-colors">Find Us</a></li>
+                <li><a href="/" class="transition-colors {{ 'text-village-stone border-b border-village-stone' if request.path == '/' else 'hover:text-village-stone' }}">Home</a></li>
+                <li><a href="/about" class="transition-colors {{ 'text-village-stone border-b border-village-stone' if request.path == '/about' else 'hover:text-village-stone' }}">About</a></li>
+                <li><a href="/gallery" class="transition-colors {{ 'text-village-stone border-b border-village-stone' if request.path == '/gallery' else 'hover:text-village-stone' }}">Gallery</a></li>
+                <li><a href="/village-hall" class="transition-colors {{ 'text-village-stone border-b border-village-stone' if request.path == '/village-hall' else 'hover:text-village-stone' }}">Village Hall</a></li>
+                <li><a href="/find-us" class="transition-colors {{ 'text-village-stone border-b border-village-stone' if request.path == '/find-us' else 'hover:text-village-stone' }}">Find Us</a></li>
             </ul>
     
         </div>
     
         <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-village-green border-t border-village-lightgreen">
-            <ul class="flex flex-col px-4 py-4 gap-4 text-village-cream font-body text-sm uppercase tracking-widest">
-                <li><a href="/" class="hover:text-village-stone transition-colors">Home</a></li>
-                <li><a href="/about" class="hover:text-village-stone transition-colors">About</a></li>
-                <li><a href="/gallery" class="hover:text-village-stone transition-colors">Gallery</a></li>
-                <li><a href="/village-hall" class="hover:text-village-stone transition-colors">Village Hall</a></li>
-                <li><a href="/find-us" class="hover:text-village-stone transition-colors">Find Us</a></li>
-            </ul>
-        </div>
+        <ul class="hidden md:flex gap-8 text-village-cream font-body text-sm uppercase tracking-widest">
+            <li><a href="/" class="transition-colors {{ 'text-village-stone border-b border-village-stone' if request.path == '/' else 'hover:text-village-stone' }}">Home</a></li>
+            <li><a href="/about" class="transition-colors {{ 'text-village-stone border-b border-village-stone' if request.path == '/about' else 'hover:text-village-stone' }}">About</a></li>
+            <li><a href="/gallery" class="transition-colors {{ 'text-village-stone border-b border-village-stone' if request.path == '/gallery' else 'hover:text-village-stone' }}">Gallery</a></li>
+            <li><a href="/village-hall" class="transition-colors {{ 'text-village-stone border-b border-village-stone' if request.path == '/village-hall' else 'hover:text-village-stone' }}">Village Hall</a></li>
+            <li><a href="/find-us" class="transition-colors {{ 'text-village-stone border-b border-village-stone' if request.path == '/find-us' else 'hover:text-village-stone' }}">Find Us</a></li>
+        </ul>
     
     </nav>
 
-    <!-- Page content -->
-    {% block content %}{% endblock %}
+    <main class="opacity-0 transition-opacity duration-500">
+        <!-- Page content -->
+        {% block content %}{% endblock %}
 
-    <!-- Footer -->
-    <footer class="bg-village-green text-village-cream mt-16">
-        <div class="max-w-6xl mx-auto px-4 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
-            <div>
-                <p class="font-heading text-xl mb-1">Abney</p>
-                <p class="text-sm opacity-70">Hope Valley, Peak District, Derbyshire</p>
+        <!-- Footer -->
+        <footer class="bg-village-green text-village-cream mt-16">
+            <div class="max-w-6xl mx-auto px-4 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
+                <div>
+                    <p class="font-heading text-xl mb-1">Abney</p>
+                    <p class="text-sm opacity-70">Hope Valley, Peak District, Derbyshire</p>
+                </div>
+                <ul class="flex gap-6 text-sm uppercase tracking-widest opacity-70">
+                    <li><a href="/about" class="hover:opacity-100 transition">About</a></li>
+                    <li><a href="/gallery" class="hover:opacity-100 transition">Gallery</a></li>
+                    <li><a href="/village-hall" class="hover:opacity-100 transition">Village Hall</a></li>
+                    <li><a href="/find-us" class="hover:opacity-100 transition">Find Us</a></li>
+                </ul>
             </div>
-            <ul class="flex gap-6 text-sm uppercase tracking-widest opacity-70">
-                <li><a href="/about" class="hover:opacity-100 transition">About</a></li>
-                <li><a href="/gallery" class="hover:opacity-100 transition">Gallery</a></li>
-                <li><a href="/village-hall" class="hover:opacity-100 transition">Village Hall</a></li>
-                <li><a href="/find-us" class="hover:opacity-100 transition">Find Us</a></li>
-            </ul>
-        </div>
-    </footer>
+        </footer>
 
-    {% block scripts %}{% endblock %}
+        {% block scripts %}{% endblock %}
+    </main>
+
+    <script src="{{ url_for('static', filename='js/transitions.js') }}"></script>
     <script src="{{ url_for('static', filename='js/nav.js') }}"></script>
 </body>
 </html>
