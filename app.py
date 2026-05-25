@@ -6,11 +6,15 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     images_dir = os.path.join(app.static_folder, 'images')
-    images = [
-        f for f in os.listdir(images_dir)
-        if f.lower().endswith(('.jpg', '.jpeg', '.png', '.webp'))
-    ]
-    images.sort()
+    if os.path.exists(images_dir):
+        images = [
+            f for f in os.listdir(images_dir)
+            if f.lower().endswith(('.jpg', '.jpeg', '.png', '.webp'))
+        ]
+        images.sort()
+        images = images[:5]
+    else:
+        images = []
     return render_template('index.html', images=images)
 @app.route('/about')
 def about():
