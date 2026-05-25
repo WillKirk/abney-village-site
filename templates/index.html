@@ -34,15 +34,11 @@
     <div id="carousel" class="relative w-full h-[60vh] overflow-hidden">
 
         <!-- Slides -->
-        <div class="carousel-slide absolute inset-0 transition-opacity duration-1000 opacity-100">
-            <img src="/static/images/village1.jpg" class="w-full h-full object-cover" alt="Abney village">
-            </div>
-        <div class="carousel-slide absolute inset-0 transition-opacity duration-1000 opacity-0">
-            <img src="/static/images/village2.jpg" class="w-full h-full object-cover" alt="Abney moorland">
+        {% for image in images %}
+        <div class="carousel-slide absolute inset-0 transition-opacity duration-1000 {{ 'opacity-100' if loop.first else 'opacity-0' }}">
+            <img src="/static/images/{{ image }}" class="w-full h-full object-cover" alt="Abney village">
         </div>
-        <div class="carousel-slide absolute inset-0 transition-opacity duration-1000 opacity-0">
-            <img src="/static/images/village3.jpg" class="w-full h-full object-cover" alt="Abney clough">
-        </div>
+        {% endfor %}
 
         <!-- Overlay -->
         <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
@@ -58,9 +54,11 @@
 
         <!-- Dots -->
         <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-            <button class="carousel-dot w-3 h-3 rounded-full bg-white opacity-100 transition"></button>
-            <button class="carousel-dot w-3 h-3 rounded-full bg-white opacity-40 transition"></button>
-            <button class="carousel-dot w-3 h-3 rounded-full bg-white opacity-40 transition"></button>
+            {% for image in images %}
+            <button class="carousel-dot w-3 h-3 rounded-full bg-white transition" 
+            style="opacity: {{ '1' if loop.first else '0.4' }}">
+            </button>
+            {% endfor %}
         </div>
 
     </div>

@@ -7,15 +7,12 @@ let current = 0;
 function goToSlide(index) {
     slides[current].classList.remove('opacity-100');
     slides[current].classList.add('opacity-0');
-    dots[current].classList.remove('opacity-100');
-    dots[current].classList.add('opacity-40');
+    dots[current].style.opacity = '0.4';
     current = (index + slides.length) % slides.length;
     slides[current].classList.remove('opacity-0');
     slides[current].classList.add('opacity-100');
-    dots[current].classList.remove('opacity-40');
-    dots[current].classList.add('opacity-100');
+    dots[current].style.opacity = '1';
 }
-// Auto advance every 5 seconds
 let timer = setInterval(() => goToSlide(current + 1), 5000);
 function resetTimer() {
     clearInterval(timer);

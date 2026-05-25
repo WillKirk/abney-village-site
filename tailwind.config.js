@@ -4,6 +4,11 @@ module.exports = {
       "./templates/**/*.html",
       "./static/**/*.js",
     ],
+    safelist: [
+      'opacity-0',
+      'opacity-40',
+      'opacity-100',
+    ],
     theme: {
       extend: {
         colors: {
