@@ -36,9 +36,15 @@ def get_images(prefix='', limit=None):
 def index():
     images = get_images(limit=5)
     return render_template('index.html', images=images, r2_url=R2_URL)
+
 @app.route('/about')
 def about():
     return render_template('about.html')
+
+@app.route('/gallery')
+def gallery():
+    images = get_images()
+    return render_template('gallery.html', images=images, r2_url=R2_URL)
 
 if __name__ == '__main__':
     app.run(debug=True)
