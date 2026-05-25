@@ -63,9 +63,62 @@
 
     </div>
 
-    <h1 class="font-heading text-4xl text-village-green p-8">
-        Welcome to Abney 
-    </h1>
+    <!-- Intro Section -->
+    <section class="max-w-3xl mx-auto px-4 py-16 text-center">
+        <h2 class="font-heading text-4xl text-village-green mb-6">Welcome to Abney</h2>
+        <p class="text-lg leading-relaxed text-village-dark">
+            Nestled high above the Hope Valley in the Peak District National Park, Abney is a small, 
+            peaceful gritstone village with a history stretching back over a thousand years. 
+            Surrounded by open moorland, ancient footpaths and the wooded depths of Abney Clough, 
+            it remains one of Derbyshire's most unspoilt and beautiful communities.
+        </p>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="max-w-6xl mx-auto px-4 pb-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <a href="/about" class="group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
+            <div class="h-32 bg-village-green flex items-center justify-center">
+                <span class="text-5xl">🏡</span>
+            </div>
+            <div class="p-4 text-center">
+                <h3 class="font-heading text-xl text-village-green mb-2">About Abney</h3>
+                <p class="text-sm text-gray-600">History, heritage and life in the village</p>
+            </div>
+        </a>
+
+        <a href="/gallery" class="group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
+            <div class="h-32 bg-village-lightgreen flex items-center justify-center">
+                <span class="text-5xl">📷</span>
+            </div>
+            <div class="p-4 text-center">
+                <h3 class="font-heading text-xl text-village-green mb-2">Gallery</h3>
+                <p class="text-sm text-gray-600">Photos of the village and surroundings</p>
+            </div>
+        </a>
+
+        <a href="/village-hall" class="group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
+            <div class="h-32 bg-village-earth flex items-center justify-center">
+                <span class="text-5xl">🏛️</span>
+            </div>
+            <div class="p-4 text-center">
+                <h3 class="font-heading text-xl text-village-green mb-2">Village Hall</h3>
+                <p class="text-sm text-gray-600">Book the hall for your event</p>
+            </div>
+        </a>
+
+        <a href="/find-us" class="group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
+            <div class="h-32 bg-village-stone flex items-center justify-center">
+                <span class="text-5xl">📍</span>
+            </div>
+            <div class="p-4 text-center">
+                <h3 class="font-heading text-xl text-village-green mb-2">Find Us</h3>
+                <p class="text-sm text-gray-600">Directions and how to get to Abney</p>
+            </div>
+        </a>
+
+    </section>
+
     <script src="{{ url_for('static', filename='js/carousel.js') }}"></script>
 </body>
 </html>
