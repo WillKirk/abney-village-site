@@ -50,5 +50,9 @@ def gallery():
 def village_hall():
     return render_template('village_hall.html')
 
+@app.route('/find-us')
+def find_us():
+    return render_template('find_us.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
