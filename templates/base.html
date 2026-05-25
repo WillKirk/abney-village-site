@@ -59,13 +59,16 @@
         </div>
     
         <!-- Mobile menu -->
-        <ul class="hidden md:flex gap-8 text-village-cream font-body text-sm uppercase tracking-widest">
-            <li><a href="/" class="transition-colors {{ 'text-village-stone border-b border-village-stone' if request.path == '/' else 'hover:text-village-stone' }}">Home</a></li>
-            <li><a href="/about" class="transition-colors {{ 'text-village-stone border-b border-village-stone' if request.path == '/about' else 'hover:text-village-stone' }}">About</a></li>
-            <li><a href="/gallery" class="transition-colors {{ 'text-village-stone border-b border-village-stone' if request.path == '/gallery' else 'hover:text-village-stone' }}">Gallery</a></li>
-            <li><a href="/village-hall" class="transition-colors {{ 'text-village-stone border-b border-village-stone' if request.path == '/village-hall' else 'hover:text-village-stone' }}">Village Hall</a></li>
-            <li><a href="/find-us" class="transition-colors {{ 'text-village-stone border-b border-village-stone' if request.path == '/find-us' else 'hover:text-village-stone' }}">Find Us</a></li>
-        </ul>
+        <div id="mobile-menu" class="hidden bg-village-green border-t border-village-lightgreen">
+            <ul class="flex flex-col px-4 py-4 gap-4 text-village-cream font-body text-sm uppercase tracking-widest">
+                <li><a href="/" class="transition-colors {{ 'text-village-stone border-b border-village-stone' if request.path == '/' else 'hover:text-village-stone' }}">Home</a></li>
+                <li><a href="/about" class="transition-colors {{ 'text-village-stone border-b border-village-stone' if request.path == '/about' else 'hover:text-village-stone' }}">About</a></li>
+                <li><a href="/gallery" class="transition-colors {{ 'text-village-stone border-b border-village-stone' if request.path == '/gallery' else 'hover:text-village-stone' }}">Gallery</a></li>
+                <li><a href="/village-hall" class="transition-colors {{ 'text-village-stone border-b border-village-stone' if request.path == '/village-hall' else 'hover:text-village-stone' }}">Village Hall</a></li>
+                <li><a href="/find-us" class="transition-colors {{ 'text-village-stone border-b border-village-stone' if request.path == '/find-us' else 'hover:text-village-stone' }}">Find Us</a></li>
+            </ul>
+        </div>
+    </nav>
     
     </nav>
 
