@@ -1,13 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Abney{% endblock %}</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Abney — Hope Valley, Peak District{% endblock %}</title>
+        
+        <!-- SEO -->
+        <meta name="description" content="{% block description %}Abney is a small, historic village in the Hope Valley, Peak District National Park, Derbyshire.{% endblock %}">
+        <meta name="keywords" content="Abney, Hope Valley, Peak District, Derbyshire, village, village hall">
+        <meta name="author" content="Abney Village">
+    
+        <!-- Open Graph (social sharing) -->
+        <meta property="og:title" content="{% block og_title %}Abney — Hope Valley, Peak District{% endblock %}">
+        <meta property="og:description" content="{% block og_description %}Abney is a small, historic village in the Hope Valley, Peak District National Park, Derbyshire.{% endblock %}">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://www.abney-hope-valley.co.uk">
+        <meta property="og:image" content="{% block og_image %}{{ r2_url }}/carousel/village1.jpeg{% endblock %}">
+    
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
+
+        <!-- Favicons -->
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon-16x16.png') }}">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='apple-touch-icon.png') }}">
+    </head>
 <body class="bg-village-cream font-body text-village-dark">
 
     <!-- Navbar -->
