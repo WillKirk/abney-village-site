@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block title %}Village Hall — Abney{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+<div class="bg-village-green text-white py-16 text-center">
+    <h1 class="font-heading text-5xl mb-4">Village Hall</h1>
+    <p class="text-lg opacity-80 uppercase tracking-widest">Bookings & Enquiries</p>
+</div>
+
+<!-- Content -->
+<section class="max-w-4xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 gap-12">
+
+    <!-- Info -->
+    <div>
+        <h2 class="font-heading text-3xl text-village-green mb-6">About the Hall</h2>
+        <p class="text-lg leading-relaxed mb-6">
+            Abney Village Hall is available for hire for private events, community gatherings, 
+            celebrations and meetings. Situated in the heart of the village, it is a welcoming 
+            space for both locals and visitors.
+        </p>
+        <p class="text-lg leading-relaxed mb-6">
+            To check availability or make an enquiry, please fill in the form and we will get 
+            back to you as soon as possible.
+        </p>
+        <ul class="text-village-dark space-y-3">
+            <li class="flex items-center gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-village-green flex-shrink-0">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                </svg>
+                Abney, Hope Valley, Derbyshire
+            </li>
+            <li class="flex items-center gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-village-green flex-shrink-0">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Available for hire 7 days a week
+            </li>
+        </ul>
+    </div>
+
+    <!-- Form -->
+    <div>
+        <h2 class="font-heading text-3xl text-village-green mb-6">Make an Enquiry</h2>
+        <form action="https://formspree.io/f/xpqnyrqq" method="POST" id="booking-form" class="space-y-4">
+            
+            <div>
+                <label class="block text-sm font-medium mb-1" for="name">Your Name</label>
+                <input type="text" id="name" name="name" required
+                    class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-village-green bg-white">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium mb-1" for="email">Email Address</label>
+                <input type="email" id="email" name="email" required
+                    class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-village-green bg-white">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium mb-1" for="date">Preferred Date</label>
+                <input type="date" id="date" name="date"
+                    class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-village-green bg-white">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium mb-1" for="event">Type of Event</label>
+                <select id="event" name="event"
+                    class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-village-green bg-white">
+                    <option value="">Please select...</option>
+                    <option value="private-party">Private Party</option>
+                    <option value="meeting">Meeting</option>
+                    <option value="celebration">Celebration</option>
+                    <option value="community">Community Event</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium mb-1" for="message">Message</label>
+                <textarea id="message" name="message" rows="4" required
+                    class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-village-green bg-white"></textarea>
+            </div>
+
+            <button type="submit"
+                class="w-full bg-village-green text-white font-body uppercase tracking-widest py-3 rounded hover:bg-village-lightgreen transition-colors">
+                Send Enquiry
+            </button>
+
+            <div id="form-success" class="hidden text-center text-village-green font-medium py-2">
+                Thank you! We'll be in touch soon.
+            </div>
+
+        </form>
+    </div>
+
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/village_hall.js') }}"></script>
+{% endblock %}

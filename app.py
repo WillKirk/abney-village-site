@@ -46,5 +46,9 @@ def gallery():
     images = get_images()
     return render_template('gallery.html', images=images, r2_url=R2_URL)
 
+@app.route('/village-hall')
+def village_hall():
+    return render_template('village_hall.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
