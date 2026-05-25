@@ -1,124 +1,85 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abney Hope Valley</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
-</head>
-<body class="bg-village-cream font-body text-village-dark">
+{% extends "base.html" %}
 
-    <nav class="bg-village-green sticky top-0 z-50 shadow-md">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-            
-            <!-- Village name / logo -->
-            <a href="/" class="font-heading text-2xl text-village-cream tracking-wide">
-                Abney
-            </a>
+{% block title %}Abney — Hope Valley, Peak District{% endblock %}
 
-            <!-- Nav links -->
-            <ul class="flex gap-8 text-village-cream font-body text-sm uppercase tracking-widest">
-                <li><a href="/" class="hover:text-village-stone transition-colors">Home</a></li>
-                <li><a href="/about" class="hover:text-village-stone transition-colors">About</a></li>
-                <li><a href="/gallery" class="hover:text-village-stone transition-colors">Gallery</a></li>
-                <li><a href="/village-hall" class="hover:text-village-stone transition-colors">Village Hall</a></li>
-                <li><a href="/find-us" class="hover:text-village-stone transition-colors">Find Us</a></li>
-            </ul>
+{% block content %}
 
-        </div>
-    </nav>
-
-    <!-- Hero Carousel -->
-    <div id="carousel" class="relative w-full h-[60vh] overflow-hidden">
-
-        <!-- Slides -->
-        {% for image in images %}
-        <div class="carousel-slide absolute inset-0 transition-opacity duration-1000 {{ 'opacity-100' if loop.first else 'opacity-0' }}">
-            <img src="/static/images/{{ image }}" class="w-full h-full object-cover" alt="Abney village">
-        </div>
-        {% endfor %}
-
-        <!-- Overlay -->
-        <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
-            <div class="text-center text-white">
-                <h1 class="font-heading text-6xl mb-4 drop-shadow-lg">Abney</h1>
-                <p class="text-xl font-light tracking-widest uppercase drop-shadow">Hope Valley, Peak District</p>
-            </div>
-        </div>
-
-        <!-- Prev/Next buttons -->
-        <button id="prev" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white px-4 py-2 rounded transition">&#8592;</button>
-        <button id="next" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white px-4 py-2 rounded transition">&#8594;</button>
-
-        <!-- Dots -->
-        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-            {% for image in images %}
-            <button class="carousel-dot w-3 h-3 rounded-full bg-white transition" 
-            style="opacity: {{ '1' if loop.first else '0.4' }}">
-            </button>
-            {% endfor %}
-        </div>
-
+<!-- Hero Carousel -->
+<div id="carousel" class="relative w-full h-[60vh] overflow-hidden">
+    {% for image in images %}
+    <div class="carousel-slide absolute inset-0 transition-opacity duration-1000 {{ 'opacity-100' if loop.first else 'opacity-0' }}">
+        <img src="/static/images/{{ image }}" class="w-full h-full object-cover" alt="Abney village">
     </div>
+    {% endfor %}
+    <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+        <div class="text-center text-white">
+            <h1 class="font-heading text-6xl mb-4 drop-shadow-lg">Abney</h1>
+            <p class="text-xl font-light tracking-widest uppercase drop-shadow">Hope Valley, Peak District</p>
+        </div>
+    </div>
+    <button id="prev" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white px-4 py-2 rounded transition">&#8592;</button>
+    <button id="next" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white px-4 py-2 rounded transition">&#8594;</button>
+    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+        {% for image in images %}
+        <button class="carousel-dot w-3 h-3 rounded-full bg-white transition"
+        style="opacity: {{ '1' if loop.first else '0.4' }}"></button>
+        {% endfor %}
+    </div>
+</div>
 
-    <!-- Intro Section -->
-    <section class="max-w-3xl mx-auto px-4 py-16 text-center">
-        <h2 class="font-heading text-4xl text-village-green mb-6">Welcome to Abney</h2>
-        <p class="text-lg leading-relaxed text-village-dark">
-            Nestled high above the Hope Valley in the Peak District National Park, Abney is a small, 
-            peaceful gritstone village with a history stretching back over a thousand years. 
-            Surrounded by open moorland, ancient footpaths and the wooded depths of Abney Clough, 
-            it remains one of Derbyshire's most unspoilt and beautiful communities.
-        </p>
-    </section>
+<!-- Intro Section -->
+<section class="max-w-3xl mx-auto px-4 py-16 text-center">
+    <h2 class="font-heading text-4xl text-village-green mb-6">Welcome to Abney</h2>
+    <p class="text-lg leading-relaxed text-village-dark">
+        Nestled high above the Hope Valley in the Peak District National Park, Abney is a small,
+        peaceful gritstone village with a history stretching back over a thousand years.
+        Surrounded by open moorland, ancient footpaths and the wooded depths of Abney Clough,
+        it remains one of Derbyshire's most unspoilt and beautiful communities.
+    </p>
+</section>
 
-    <!-- Quick Links -->
-    <section class="max-w-6xl mx-auto px-4 pb-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        
-        <a href="/about" class="group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
-            <div class="h-32 bg-village-green flex items-center justify-center">
-                <span class="text-5xl">🏡</span>
-            </div>
-            <div class="p-4 text-center">
-                <h3 class="font-heading text-xl text-village-green mb-2">About Abney</h3>
-                <p class="text-sm text-gray-600">History, heritage and life in the village</p>
-            </div>
-        </a>
+<!-- Quick Links -->
+<section class="max-w-6xl mx-auto px-4 pb-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <a href="/about" class="group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
+        <div class="h-32 bg-village-green flex items-center justify-center">
+            <span class="text-5xl">🏡</span>
+        </div>
+        <div class="p-4 text-center">
+            <h3 class="font-heading text-xl text-village-green mb-2">About Abney</h3>
+            <p class="text-sm text-gray-600">History, heritage and life in the village</p>
+        </div>
+    </a>
+    <a href="/gallery" class="group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
+        <div class="h-32 bg-village-lightgreen flex items-center justify-center">
+            <span class="text-5xl">📷</span>
+        </div>
+        <div class="p-4 text-center">
+            <h3 class="font-heading text-xl text-village-green mb-2">Gallery</h3>
+            <p class="text-sm text-gray-600">Photos of the village and surroundings</p>
+        </div>
+    </a>
+    <a href="/village-hall" class="group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
+        <div class="h-32 bg-village-earth flex items-center justify-center">
+            <span class="text-5xl">🏛️</span>
+        </div>
+        <div class="p-4 text-center">
+            <h3 class="font-heading text-xl text-village-green mb-2">Village Hall</h3>
+            <p class="text-sm text-gray-600">Book the hall for your event</p>
+        </div>
+    </a>
+    <a href="/find-us" class="group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
+        <div class="h-32 bg-village-stone flex items-center justify-center">
+            <span class="text-5xl">📍</span>
+        </div>
+        <div class="p-4 text-center">
+            <h3 class="font-heading text-xl text-village-green mb-2">Find Us</h3>
+            <p class="text-sm text-gray-600">Directions and how to get to Abney</p>
+        </div>
+    </a>
+</section>
 
-        <a href="/gallery" class="group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
-            <div class="h-32 bg-village-lightgreen flex items-center justify-center">
-                <span class="text-5xl">📷</span>
-            </div>
-            <div class="p-4 text-center">
-                <h3 class="font-heading text-xl text-village-green mb-2">Gallery</h3>
-                <p class="text-sm text-gray-600">Photos of the village and surroundings</p>
-            </div>
-        </a>
+{% endblock %}
 
-        <a href="/village-hall" class="group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
-            <div class="h-32 bg-village-earth flex items-center justify-center">
-                <span class="text-5xl">🏛️</span>
-            </div>
-            <div class="p-4 text-center">
-                <h3 class="font-heading text-xl text-village-green mb-2">Village Hall</h3>
-                <p class="text-sm text-gray-600">Book the hall for your event</p>
-            </div>
-        </a>
-
-        <a href="/find-us" class="group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
-            <div class="h-32 bg-village-stone flex items-center justify-center">
-                <span class="text-5xl">📍</span>
-            </div>
-            <div class="p-4 text-center">
-                <h3 class="font-heading text-xl text-village-green mb-2">Find Us</h3>
-                <p class="text-sm text-gray-600">Directions and how to get to Abney</p>
-            </div>
-        </a>
-
-    </section>
-
-    <script src="{{ url_for('static', filename='js/carousel.js') }}"></script>
-</body>
-</html>
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/carousel.js') }}"></script>
+{% endblock %}

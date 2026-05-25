@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Abney{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
+</head>
+<body class="bg-village-cream font-body text-village-dark">
+
+    <!-- Navbar -->
+    <nav class="bg-village-green sticky top-0 z-50 shadow-md">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="/" class="font-heading text-2xl text-village-cream tracking-wide">Abney</a>
+            <ul class="flex gap-8 text-village-cream font-body text-sm uppercase tracking-widest">
+                <li><a href="/" class="hover:text-village-stone transition-colors">Home</a></li>
+                <li><a href="/about" class="hover:text-village-stone transition-colors">About</a></li>
+                <li><a href="/gallery" class="hover:text-village-stone transition-colors">Gallery</a></li>
+                <li><a href="/village-hall" class="hover:text-village-stone transition-colors">Village Hall</a></li>
+                <li><a href="/find-us" class="hover:text-village-stone transition-colors">Find Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page content -->
+    {% block content %}{% endblock %}
+
+    <!-- Footer -->
+    <footer class="bg-village-green text-village-cream mt-16">
+        <div class="max-w-6xl mx-auto px-4 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div>
+                <p class="font-heading text-xl mb-1">Abney</p>
+                <p class="text-sm opacity-70">Hope Valley, Peak District, Derbyshire</p>
+            </div>
+            <ul class="flex gap-6 text-sm uppercase tracking-widest opacity-70">
+                <li><a href="/about" class="hover:opacity-100 transition">About</a></li>
+                <li><a href="/gallery" class="hover:opacity-100 transition">Gallery</a></li>
+                <li><a href="/village-hall" class="hover:opacity-100 transition">Village Hall</a></li>
+                <li><a href="/find-us" class="hover:opacity-100 transition">Find Us</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    {% block scripts %}{% endblock %}
+
+</body>
+</html>
