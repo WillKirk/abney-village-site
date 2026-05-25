@@ -34,7 +34,7 @@ def get_images(prefix='', limit=None):
 
 @app.route('/')
 def index():
-    images = get_images(limit=5)
+    images = get_images(prefix='carousel/')
     return render_template('index.html', images=images, r2_url=R2_URL)
 
 @app.route('/about')
@@ -43,7 +43,7 @@ def about():
 
 @app.route('/gallery')
 def gallery():
-    images = get_images()
+    images = get_images(prefix='gallery/')
     return render_template('gallery.html', images=images, r2_url=R2_URL)
 
 @app.route('/village-hall')
