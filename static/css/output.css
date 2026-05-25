@@ -659,12 +659,20 @@ video {
   height: 8rem;
 }
 
+.h-16 {
+  height: 4rem;
+}
+
 .w-3 {
   width: 0.75rem;
 }
 
 .w-full {
   width: 100%;
+}
+
+.w-16 {
+  width: 4rem;
 }
 
 .max-w-6xl {
