@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Village Hall — Abney{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+<div class="bg-village-green text-white py-16 text-center">
+    <h1 class="font-heading text-5xl mb-4">Village Hall</h1>
+    <p class="text-lg opacity-80 uppercase tracking-widest">The Heart of Abney</p>
+</div>
+
+<!-- Content -->
+<section class="max-w-4xl mx-auto px-4 py-16">
+
+    <p class="text-lg leading-relaxed mb-12">
+        Abney Village Hall is a welcoming space at the heart of the village, available for hire
+        for private events, community gatherings, celebrations and meetings. It is kept running
+        thanks to grants and donations from local organisations and supporters.
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+        <a href="/village-hall-booking" class="group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
+            <div class="h-32 bg-village-earth flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-16 h-16">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
+                </svg>
+            </div>
+            <div class="p-6 text-center">
+                <h3 class="font-heading text-xl text-village-green mb-2">Booking</h3>
+                <p class="text-sm text-gray-600">Book the hall for your event or enquire about availability</p>
+            </div>
+        </a>
+
+        <a href="/village-hall-funding" class="group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
+            <div class="h-32 bg-village-lightgreen flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-16 h-16">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </div>
+            <div class="p-6 text-center">
+                <h3 class="font-heading text-xl text-village-green mb-2">Funding</h3>
+                <p class="text-sm text-gray-600">See the grants and donations that support the hall</p>
+            </div>
+        </a>
+    </div>
+
+    <h2 class="font-heading text-3xl text-village-green mt-16 mb-6">The Hall in Pictures</h2>
+    <div id="hall-carousel" class="relative w-full h-96 overflow-hidden rounded-lg shadow-md">
+        {% for image in hall_images %}
+        <div class="carousel-slide absolute inset-0 transition-opacity duration-1000 {{ 'opacity-100' if loop.first else 'opacity-0' }}">
+            <img src="{{ url_for('static', filename='images/' + image) }}" class="w-full h-full object-cover" alt="Abney Village Hall">
+        </div>
+        {% endfor %}
+        <button id="prev" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white px-4 py-2 rounded transition">&#8592;</button>
+        <button id="next" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white px-4 py-2 rounded transition">&#8594;</button>
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+            {% for image in hall_images %}
+            <button class="carousel-dot w-3 h-3 rounded-full bg-white transition"
+            style="opacity: {{ '1' if loop.first else '0.4' }}"></button>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/carousel.js') }}"></script>
+{% endblock %}

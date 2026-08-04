@@ -48,7 +48,17 @@ def gallery():
 
 @app.route('/village-hall')
 def village_hall():
-    return render_template('village_hall.html')
+    hall_images = ['villagehall2.png', 'villagehall3.jpg',
+                   'villagehall4.jpg', 'villagehall5.jpg', 'villagehall6.jpg', 'villagehall7.jpg']
+    return render_template('village_hall_landing.html', hall_images=hall_images)
+
+@app.route('/village-hall-booking')
+def village_hall_booking():
+    return render_template('village_hall_booking.html')
+
+@app.route('/village-hall-funding')
+def village_hall_funding():
+    return render_template('village_hall_funding.html')
 
 @app.route('/find-us')
 def find_us():

@@ -33,6 +33,7 @@
         <script defer src="/_vercel/insights/script.js"></script>
     </head>
 <body class="bg-village-cream font-body text-village-dark">
+    {% set village_hall_active = request.path.startswith('/village-hall') %}
 
     <!-- Navbar -->
     <nav class="bg-village-green sticky top-0 z-50 shadow-md">
@@ -56,7 +57,17 @@
                 <li><a href="/" class="transition-colors {{ 'text-village-stone border-b border-village-stone' if request.path == '/' else 'hover:text-village-stone' }}">Home</a></li>
                 <li><a href="/about" class="transition-colors {{ 'text-village-stone border-b border-village-stone' if request.path == '/about' else 'hover:text-village-stone' }}">About</a></li>
                 <li><a href="/gallery" class="transition-colors {{ 'text-village-stone border-b border-village-stone' if request.path == '/gallery' else 'hover:text-village-stone' }}">Gallery</a></li>
-                <li><a href="/village-hall" class="transition-colors {{ 'text-village-stone border-b border-village-stone' if request.path == '/village-hall' else 'hover:text-village-stone' }}">Village Hall</a></li>
+                <li class="relative group">
+                    <a href="/village-hall" class="transition-colors cursor-pointer {{ 'text-village-stone border-b border-village-stone' if village_hall_active else 'group-hover:text-village-stone' }}">Village Hall</a>
+                    <ul class="absolute left-1/2 -translate-x-1/2 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <li class="bg-village-green border border-village-lightgreen shadow-lg min-w-[140px]">
+                            <a href="/village-hall-booking" class="block px-5 py-3 cursor-pointer hover:bg-village-lightgreen hover:text-village-stone transition-colors">Booking</a>
+                        </li>
+                        <li class="bg-village-green border-x border-b border-village-lightgreen shadow-lg">
+                            <a href="/village-hall-funding" class="block px-5 py-3 cursor-pointer hover:bg-village-lightgreen hover:text-village-stone transition-colors">Funding</a>
+                        </li>
+                    </ul>
+                </li>
                 <li><a href="/find-us" class="transition-colors {{ 'text-village-stone border-b border-village-stone' if request.path == '/find-us' else 'hover:text-village-stone' }}">Find Us</a></li>
             </ul>
     
@@ -68,12 +79,16 @@
                 <li><a href="/" class="transition-colors {{ 'text-village-stone border-b border-village-stone' if request.path == '/' else 'hover:text-village-stone' }}">Home</a></li>
                 <li><a href="/about" class="transition-colors {{ 'text-village-stone border-b border-village-stone' if request.path == '/about' else 'hover:text-village-stone' }}">About</a></li>
                 <li><a href="/gallery" class="transition-colors {{ 'text-village-stone border-b border-village-stone' if request.path == '/gallery' else 'hover:text-village-stone' }}">Gallery</a></li>
-                <li><a href="/village-hall" class="transition-colors {{ 'text-village-stone border-b border-village-stone' if request.path == '/village-hall' else 'hover:text-village-stone' }}">Village Hall</a></li>
+                <li>
+                    <a href="/village-hall" class="transition-colors cursor-pointer {{ 'text-village-stone border-b border-village-stone' if village_hall_active else 'hover:text-village-stone' }}">Village Hall</a>
+                    <ul class="pl-4 mt-2 flex flex-col gap-2 border-l border-village-lightgreen">
+                        <li><a href="/village-hall-booking" class="cursor-pointer hover:text-village-stone transition-colors">Booking</a></li>
+                        <li><a href="/village-hall-funding" class="cursor-pointer hover:text-village-stone transition-colors">Funding</a></li>
+                    </ul>
+                </li>
                 <li><a href="/find-us" class="transition-colors {{ 'text-village-stone border-b border-village-stone' if request.path == '/find-us' else 'hover:text-village-stone' }}">Find Us</a></li>
             </ul>
         </div>
-    </nav>
-    
     </nav>
 
     <main class="opacity-0 transition-opacity duration-500">
@@ -87,11 +102,11 @@
                     <p class="font-heading text-xl mb-1">Abney</p>
                     <p class="text-sm opacity-70">Hope Valley, Peak District, Derbyshire</p>
                 </div>
-                <ul class="flex gap-6 text-sm uppercase tracking-widest opacity-70">
-                    <li><a href="/about" class="hover:opacity-100 transition">About</a></li>
-                    <li><a href="/gallery" class="hover:opacity-100 transition">Gallery</a></li>
-                    <li><a href="/village-hall" class="hover:opacity-100 transition">Village Hall</a></li>
-                    <li><a href="/find-us" class="hover:opacity-100 transition">Find Us</a></li>
+                <ul class="flex gap-6 text-sm uppercase tracking-widest">
+                    <li><a href="/about" class="opacity-70 hover:opacity-100 transition">About</a></li>
+                    <li><a href="/gallery" class="opacity-70 hover:opacity-100 transition">Gallery</a></li>
+                    <li><a href="/village-hall" class="cursor-pointer opacity-70 hover:opacity-100 transition">Village Hall</a></li>
+                    <li><a href="/find-us" class="opacity-70 hover:opacity-100 transition">Find Us</a></li>
                 </ul>
             </div>
         </footer>
