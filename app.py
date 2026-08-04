@@ -48,9 +48,8 @@ def gallery():
 
 @app.route('/village-hall')
 def village_hall():
-    hall_images = ['villagehall2.png', 'villagehall3.jpg',
-                   'villagehall4.jpg', 'villagehall5.jpg', 'villagehall6.jpg', 'villagehall7.jpg']
-    return render_template('village_hall_landing.html', hall_images=hall_images)
+    hall_images = get_images(prefix='village-hall-images/')
+    return render_template('village_hall_landing.html', hall_images=hall_images, r2_url=R2_URL)
 
 @app.route('/village-hall-booking')
 def village_hall_booking():
